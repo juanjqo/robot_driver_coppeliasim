@@ -118,6 +118,7 @@ void RobotDriverCoppeliasim::_start_echo_robot_state_mode()
         {
             simulation_time_ = vi_->get_simulation_time();
             echo_robot_state_mode();
+            std::this_thread::sleep_for(std::chrono::milliseconds(1));
         }
         catch (std::exception& e)
         {
