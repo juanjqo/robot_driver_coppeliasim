@@ -9,4 +9,4 @@ add_library(robot_driver_coppeliasim
     ${REPOSITORY_DIR}/include/robot_driver_coppeliasim.h
     ${REPOSITORY_DIR}/src/robot_driver_coppeliasim.cpp
 )
-target_link_libraries(robot_driver_coppeliasim dqrobotics-interface-coppeliasim)
+target_link_libraries(robot_driver_coppeliasim dqrobotics-interface-coppeliasim-zmq)

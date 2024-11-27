@@ -7,11 +7,11 @@ RobotDriverCoppeliasim::RobotDriverCoppeliasim(const std::string& host,
                                                const int& MAX_TIME_IN_MILLISECONDS_TO_TRY_CONNECTION)
     :operation_mode_{OPERATION_MODE::MASTER}, ip_{host}, port_{rpcPort}, timeout_{MAX_TIME_IN_MILLISECONDS_TO_TRY_CONNECTION}
 {
-    vi_ = std::make_shared<DQ_CoppeliaSimInterface>();
+    vi_ = std::make_shared<DQ_CoppeliaSimInterfaceZMQExperimental>();
     //vi_->connect(ip_, port_, timeout_);
 }
 
-RobotDriverCoppeliasim::RobotDriverCoppeliasim(const std::shared_ptr<DQ_CoppeliaSimInterface> &vi)
+RobotDriverCoppeliasim::RobotDriverCoppeliasim(const std::shared_ptr<DQ_CoppeliaSimInterfaceZMQExperimental> &vi)
     :operation_mode_{OPERATION_MODE::STEALTH}, ip_{"localhost"}, port_{23000}, vi_{vi}
 
 {

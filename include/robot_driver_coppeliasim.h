@@ -3,7 +3,10 @@
 #include <thread>
 #include <atomic>
 #include <Eigen/Dense>
-#include <dqrobotics/interfaces/coppeliasim/DQ_CoppeliaSimInterface.h>
+#include <dqrobotics/interfaces/coppeliasim/DQ_CoppeliaSimInterfaceZMQExperimental.h>
+
+
+using namespace DQ_robotics;
 
 class RobotDriverCoppeliasim
 {
@@ -41,7 +44,7 @@ protected:
 
     int timeout_{1000};
 
-    std::shared_ptr<DQ_CoppeliaSimInterface> vi_;
+    std::shared_ptr<DQ_CoppeliaSimInterfaceZMQExperimental> vi_;
 
 
 
@@ -50,7 +53,7 @@ protected:
                            const int& rpcPort = 23000,
                            const int& MAX_TIME_IN_MILLISECONDS_TO_TRY_CONNECTION = 1000);
 
-    RobotDriverCoppeliasim(const std::shared_ptr<DQ_CoppeliaSimInterface>& vi);
+    RobotDriverCoppeliasim(const std::shared_ptr<DQ_CoppeliaSimInterfaceZMQExperimental>& vi);
 
     virtual void echo_robot_state_mode() = 0;
 
