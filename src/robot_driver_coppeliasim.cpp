@@ -18,6 +18,11 @@ RobotDriverCoppeliasim::RobotDriverCoppeliasim(const std::shared_ptr<DQ_Coppelia
 
 }
 
+void RobotDriverCoppeliasim::after_connect()
+{
+
+}
+
 
 
 std::string RobotDriverCoppeliasim::get_status_message() const
@@ -55,6 +60,7 @@ void RobotDriverCoppeliasim::connect()
             std::this_thread::sleep_for(std::chrono::milliseconds(100));
             status_msg_ = "connected!";
             current_status_ = STATUS::CONNECTED;
+            after_connect();
         }
         catch (std::exception& e)
         {

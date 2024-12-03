@@ -56,6 +56,7 @@ protected:
     RobotDriverCoppeliasim(const std::shared_ptr<DQ_CoppeliaSimInterfaceZMQExperimental>& vi);
 
     virtual void echo_robot_state_mode() = 0;
+    virtual void after_connect();
 
 public:
     std::string get_status_message() const;
