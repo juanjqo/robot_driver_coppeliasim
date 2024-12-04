@@ -24,7 +24,7 @@ private:
         STEALTH,
         MASTER,
     };
-    OPERATION_MODE operation_mode_;
+    OPERATION_MODE operation_mode_{STEALTH};
 
     void _start_echo_robot_state_mode();
     std::thread echo_robot_state_mode_thread_;
