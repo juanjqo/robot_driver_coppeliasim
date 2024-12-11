@@ -1,5 +1,5 @@
 #include <iostream>
-#include <RobotDriverCoppeliasimPanda.h>
+#include <RobotDriverCoppeliaSimPanda.h>
 #include <capybara.hpp>
 
 using namespace std;

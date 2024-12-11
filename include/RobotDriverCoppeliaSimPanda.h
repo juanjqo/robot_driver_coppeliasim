@@ -1,7 +1,7 @@
 #pragma once
-#include <RobotDriverCoppeliasim.h>
+#include <RobotDriverCoppeliaSim.h>
 
-class RobotDriverCoppeliasimPanda: public RobotDriverCoppeliasim
+class RobotDriverCoppeliasimPanda: public RobotDriverCoppeliaSim
 {
 protected:
     void echo_robot_state_mode() override;

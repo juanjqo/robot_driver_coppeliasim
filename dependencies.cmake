@@ -5,8 +5,8 @@ INCLUDE_DIRECTORIES(${EIGEN3_INCLUDE_DIR})
 ADD_COMPILE_OPTIONS(-Werror=return-type -Wall -Wextra -Wmissing-declarations -Wredundant-decls -Woverloaded-virtual)
 
 
-add_library(RobotDriverCoppeliasim
-    ${REPOSITORY_DIR}/include/RobotDriverCoppeliasim.h
-    ${REPOSITORY_DIR}/src/RobotDriverCoppeliasim.cpp
+add_library(RobotDriverCoppeliaSim
+    ${REPOSITORY_DIR}/include/RobotDriverCoppeliaSim.h
+    ${REPOSITORY_DIR}/src/RobotDriverCoppeliaSim.cpp
 )
-target_link_libraries(RobotDriverCoppeliasim dqrobotics-interface-coppeliasim-zmq)
+target_link_libraries(RobotDriverCoppeliaSim dqrobotics-interface-coppeliasim-zmq)

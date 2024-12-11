@@ -8,7 +8,7 @@
 
 using namespace DQ_robotics;
 
-class RobotDriverCoppeliasim
+class RobotDriverCoppeliaSim
 {
 private:
     enum STATUS{
@@ -49,11 +49,11 @@ protected:
 
 
 
-    RobotDriverCoppeliasim(const std::string& host = "localhost",
+    RobotDriverCoppeliaSim(const std::string& host = "localhost",
                            const int& rpcPort = 23000,
                            const int& MAX_TIME_IN_MILLISECONDS_TO_TRY_CONNECTION = 1000);
 
-    RobotDriverCoppeliasim(const std::shared_ptr<DQ_CoppeliaSimInterfaceZMQExperimental>& vi);
+    RobotDriverCoppeliaSim(const std::shared_ptr<DQ_CoppeliaSimInterfaceZMQExperimental>& vi);
 
     virtual void echo_robot_state_mode() = 0;
     virtual void after_connect();

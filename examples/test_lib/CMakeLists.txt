@@ -9,10 +9,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(REPOSITORY_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../)
 include(${REPOSITORY_DIR}/dependencies.cmake)
 
-add_library(RobotDriverCoppeliasimPanda
-           ${REPOSITORY_DIR}/include/RobotDriverCoppeliasimPanda.h
-           ${REPOSITORY_DIR}/src/RobotDriverCoppeliasimPanda.cpp)
-target_link_libraries(RobotDriverCoppeliasimPanda RobotDriverCoppeliasim)
+add_library(RobotDriverCoppeliaSimPanda
+           ${REPOSITORY_DIR}/include/RobotDriverCoppeliaSimPanda.h
+           ${REPOSITORY_DIR}/src/RobotDriverCoppeliaSimPanda.cpp)
+target_link_libraries(RobotDriverCoppeliaSimPanda RobotDriverCoppeliaSim)
 
 ##########################################################
 set(USE_CAPY_DQROBOTICS false) #optional
@@ -31,4 +31,4 @@ include_directories(${REPOSITORY_DIR}/include/)
 
 add_executable(test_lib main.cpp)
 
-target_link_libraries(test_lib capybara dqrobotics RobotDriverCoppeliasim RobotDriverCoppeliasimPanda)
+target_link_libraries(test_lib capybara dqrobotics RobotDriverCoppeliaSim RobotDriverCoppeliaSimPanda)

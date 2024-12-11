@@ -1,8 +1,8 @@
-#include "RobotDriverCoppeliasim.h"
+#include "RobotDriverCoppeliaSim.h"
 
 
 
-RobotDriverCoppeliasim::RobotDriverCoppeliasim(const std::string& host,
+RobotDriverCoppeliaSim::RobotDriverCoppeliaSim(const std::string& host,
                                                const int& rpcPort,
                                                const int& MAX_TIME_IN_MILLISECONDS_TO_TRY_CONNECTION)
     :operation_mode_{OPERATION_MODE::MASTER}, ip_{host}, port_{rpcPort}, timeout_{MAX_TIME_IN_MILLISECONDS_TO_TRY_CONNECTION}
@@ -11,36 +11,36 @@ RobotDriverCoppeliasim::RobotDriverCoppeliasim(const std::string& host,
     //vi_->connect(ip_, port_, timeout_);
 }
 
-RobotDriverCoppeliasim::RobotDriverCoppeliasim(const std::shared_ptr<DQ_CoppeliaSimInterfaceZMQExperimental> &vi)
+RobotDriverCoppeliaSim::RobotDriverCoppeliaSim(const std::shared_ptr<DQ_CoppeliaSimInterfaceZMQExperimental> &vi)
     :operation_mode_{OPERATION_MODE::STEALTH}, ip_{"localhost"}, port_{23000}, vi_{vi}
 
 {
 
 }
 
-void RobotDriverCoppeliasim::after_connect()
+void RobotDriverCoppeliaSim::after_connect()
 {
 
 }
 
 
 
-std::string RobotDriverCoppeliasim::get_status_message() const
+std::string RobotDriverCoppeliaSim::get_status_message() const
 {
     return status_msg_;
 }
 
-double RobotDriverCoppeliasim::get_simulation_time() const
+double RobotDriverCoppeliaSim::get_simulation_time() const
 {
     return simulation_time_;
 }
 
-int RobotDriverCoppeliasim::get_port() const
+int RobotDriverCoppeliaSim::get_port() const
 {
     return port_;
 }
 
-std::string RobotDriverCoppeliasim::get_ip() const
+std::string RobotDriverCoppeliaSim::get_ip() const
 {
     return ip_;
 }
@@ -49,7 +49,7 @@ std::string RobotDriverCoppeliasim::get_ip() const
 
 
 
-void RobotDriverCoppeliasim::connect()
+void RobotDriverCoppeliaSim::connect()
 {
     if (vi_)
     {
@@ -76,7 +76,7 @@ void RobotDriverCoppeliasim::connect()
 }
 
 
-void RobotDriverCoppeliasim::initialize()
+void RobotDriverCoppeliaSim::initialize()
 {
     if (current_status_ == STATUS::CONNECTED)
     {
@@ -90,7 +90,7 @@ void RobotDriverCoppeliasim::initialize()
     }
 }
 
-void RobotDriverCoppeliasim::deinitialize()
+void RobotDriverCoppeliaSim::deinitialize()
 {
     if (current_status_ == STATUS::INITIALIZED)
     {
@@ -108,7 +108,7 @@ void RobotDriverCoppeliasim::deinitialize()
     }
 }
 
-void RobotDriverCoppeliasim::disconnect()
+void RobotDriverCoppeliaSim::disconnect()
 {
     //vi_->disconnect();
     current_status_ = STATUS::DISCONNECTED;
@@ -116,7 +116,7 @@ void RobotDriverCoppeliasim::disconnect()
 }
 
 
-void RobotDriverCoppeliasim::_start_echo_robot_state_mode()
+void RobotDriverCoppeliaSim::_start_echo_robot_state_mode()
 {
     while(!finish_echo_robot_state_)
     {
@@ -134,7 +134,7 @@ void RobotDriverCoppeliasim::_start_echo_robot_state_mode()
     }
 }
 
-void RobotDriverCoppeliasim::_start_echo_robot_state_mode_thread()
+void RobotDriverCoppeliaSim::_start_echo_robot_state_mode_thread()
 {
     finish_echo_robot_state_ = false;
     status_msg_ = "Checking echo robot state thread";
@@ -143,10 +143,10 @@ void RobotDriverCoppeliasim::_start_echo_robot_state_mode_thread()
         echo_robot_state_mode_thread_.join();
     }
     status_msg_ ="Starting echo robot state thread";
-    echo_robot_state_mode_thread_ = std::thread(&RobotDriverCoppeliasim::_start_echo_robot_state_mode, this);
+    echo_robot_state_mode_thread_ = std::thread(&RobotDriverCoppeliaSim::_start_echo_robot_state_mode, this);
 }
 
-void RobotDriverCoppeliasim::_finish_echo_robot_state()
+void RobotDriverCoppeliaSim::_finish_echo_robot_state()
 {
     status_msg_ = "Finishing echo robot state.";
     finish_echo_robot_state_ = true;
