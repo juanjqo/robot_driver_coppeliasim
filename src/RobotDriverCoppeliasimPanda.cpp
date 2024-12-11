@@ -1,4 +1,4 @@
-#include "robot_driver_coppeliasim_panda.h"
+#include "RobotDriverCoppeliasimPanda.h"
 
 RobotDriverCoppeliasimPanda::RobotDriverCoppeliasimPanda(const std::string &host,
                                                          const int &rpcPort,

@@ -1,5 +1,5 @@
 #pragma once
-#include <robot_driver_coppeliasim.h>
+#include <RobotDriverCoppeliasim.h>
 
 class RobotDriverCoppeliasimPanda: public RobotDriverCoppeliasim
 {
